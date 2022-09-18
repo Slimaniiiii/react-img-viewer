@@ -1,5 +1,5 @@
 {
-  "name": "react-img-viewer",
+  "name": "@Slimaniiiii/react-img-viewer",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -27,6 +27,9 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "@types/react": "^18.0.20",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.20",
