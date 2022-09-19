@@ -3,6 +3,8 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import path from "path";
+import svg from 'rollup-plugin-svg'
+
 // NEW
 import postcss from "rollup-plugin-postcss";
 
@@ -25,6 +27,7 @@ export default [
       },
     ],
     plugins: [
+      svg(),
       resolve({
         alias: {
           react: path.resolve("./node_modules/react"),

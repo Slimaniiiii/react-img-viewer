@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Close from "../icons/close.svg";
 import "./ImageViewer.css";
 
 interface imageProps {
@@ -17,22 +18,20 @@ const ImageViewer = (props: imageProps) => {
     setModel(true);
   };
 
+
   return (
     <>
       <div className={model ? "model open" : "model"}>
         <img src={tempImgSrc} alt="image" />
+        <Close onClick={() => setModel(false)} />
       </div>
-      <div className="wrapper">
-        <div className="wrapper-images">
-          <img
-            src={props.img}
-            height={props.height}
-            width={props.width}
-            alt="image"
-            onClick={() => getImg(props.img)}
-          />
-        </div>
-      </div>
+      <img
+        src={props.img}
+        height={props.height}
+        width={props.width}
+        alt="image"
+        onClick={() => getImg(props.img)}
+      />
     </>
   );
 };

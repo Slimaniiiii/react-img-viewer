@@ -1,6 +1,6 @@
 {
   "name": "react-img-popup",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "scripts": {
     "rollup": "rollup -c",
@@ -22,6 +22,7 @@
     "rollup": "^2.79.0",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svg": "^2.0.0",
     "tslib": "^2.4.0",
     "typescript": "^4.8.3"
   },
