@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Button.css";
+import "./ImageViewer.css";
 
 
 interface imageProps {
@@ -10,9 +10,8 @@ interface imageProps {
 }
 
 
-const Button = (props: imageProps) => {
-
-
+const ImageViewer = (props: imageProps) => {
+  
   function handleClick(img: string) {
     console.log(img)
   }
@@ -26,4 +25,4 @@ const Button = (props: imageProps) => {
   )
 };
 
-export default Button;
+export default ImageViewer;

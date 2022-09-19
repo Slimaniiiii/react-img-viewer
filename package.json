@@ -1,12 +1,16 @@
 {
-  "name": "@Slimaniiiii/react-img-viewer",
+  "name": "react-img-viewer",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "rollup": "rollup -c",
-    "start": "rollup -c -w"  
+    "start": "rollup -c -w"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slimaniiiii/react-img-viewer"
+  },
+  "author": "Houssem Slimani",
   "license": "ISC",
   "devDependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -27,9 +31,6 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "peerDependencies": {
     "@types/react": "^18.0.20",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.20",
