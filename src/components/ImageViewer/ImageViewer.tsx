@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Close from "../icons/close.svg";
+import { CloseIcon } from "../icons/CloseIcon";
 import "./ImageViewer.css";
+// const Close: string = require("../icons/close.svg").default;
 
 interface imageProps {
   img: string;
@@ -18,12 +19,11 @@ const ImageViewer = (props: imageProps) => {
     setModel(true);
   };
 
-
   return (
     <>
       <div className={model ? "model open" : "model"}>
         <img src={tempImgSrc} alt="image" />
-        <Close onClick={() => setModel(false)} />
+        <CloseIcon width={40} height={40} onClick={() => setModel(false)} />
       </div>
       <img
         src={props.img}
