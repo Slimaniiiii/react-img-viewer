@@ -9,25 +9,31 @@ interface imageProps {
 }
 
 const ImageViewer = (props: imageProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  function handleClick(img: string) {
-    console.log(img);
-    setIsLoaded(true);
-  }
+  const [model, setModel] = useState(false);
+  const [tempImgSrc, setTempImgSrc] = useState("");
 
-  console.log("isLoaded", isLoaded);
+  const getImg = (img: string) => {
+    setTempImgSrc(img);
+    setModel(true);
+  };
+
   return (
-    <div className="wrapper">
-      <div className="wrapper-images">
-        <img
-          src={props.img}
-          height={props.height}
-          width={props.width}
-          alt="image"
-          onClick={() => handleClick(props.img)}
-        />
+    <>
+      <div className={model ? "model open" : "model"}>
+        <img src={tempImgSrc} alt="image" />
       </div>
-    </div>
+      <div className="wrapper">
+        <div className="wrapper-images">
+          <img
+            src={props.img}
+            height={props.height}
+            width={props.width}
+            alt="image"
+            onClick={() => getImg(props.img)}
+          />
+        </div>
+      </div>
+    </>
   );
 };
 
