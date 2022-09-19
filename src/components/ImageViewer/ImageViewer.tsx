@@ -23,7 +23,7 @@ const ImageViewer = (props: imageProps) => {
     <>
       <div className={model ? "model open" : "model"}>
         <img src={tempImgSrc} alt="image" />
-        <CloseIcon width={40} height={40} onClick={() => setModel(false)} />
+        <CloseIcon width={30} height={30} onClick={() => setModel(false)} />
       </div>
       <img
         src={props.img}
