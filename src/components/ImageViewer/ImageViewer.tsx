@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { CloseIcon } from "../icons/CloseIcon";
 import { ArrowLeft } from "../icons/ArrowLeft";
 import { ArrowRight } from "../icons/ArrowRight";
@@ -44,10 +44,13 @@ const ImageViewer = (props: imageProps) => {
   };
 
   function addListeners() {
-    let testi: any = document.getElementById("testimg");
-    testi.addEventListener("mousedown", mouseDown, false);
-    window.addEventListener("mouseup", mouseUp, false);
+    let haja: any = document.getElementById("testimg");
+    if (haja) {
+      haja.addEventListener("mousedown", mouseDown, false);
+      window.addEventListener("mouseup", mouseUp, false);
+    }
   }
+
   function mouseUp() {
     window.removeEventListener("mousemove", divMove, true);
   }
@@ -57,12 +60,20 @@ const ImageViewer = (props: imageProps) => {
   }
 
   function divMove(e: any) {
-    let div: any = document.getElementById("testi");
-    div.style.position = "absolute";
-    div.style.top = e.clientY + "px";
-    div.style.left = e.clientX + "px";
+    const div = document.getElementById("testimg");
+    if (div) {
+      div.style.position = "absolute";
+      div.style.top = e.clientY + "px";
+      div.style.left = e.clientX + "px";
+    }
   }
-  addListeners();
+  useEffect(() => {
+    addListeners();
+    return () => {
+      window.removeEventListener("mousemove", divMove, true);
+    };
+  }, []);
+
   return (
     <>
       <div className={model ? "model open" : "model"}>
