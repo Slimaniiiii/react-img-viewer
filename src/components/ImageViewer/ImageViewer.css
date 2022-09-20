@@ -7,32 +7,37 @@
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.568);
-  transition: opacity .4s ease, visibility .4s ease, transform .5s ease-in-out;
-  visibility: hidden;
+  /* transition: opacity 0.4s ease, visibility 0.4s ease,
+    transform 0.5s ease-in-out;
   opacity: 0;
-  transform: scale(0);
+  transform: scale(0); */
   overflow: hidden;
+  visibility: hidden;
   z-index: 999;
 }
 
-.model.open {
-  visibility: visible;
-  opacity: 1;
-  transform: scale(1);
-}
-
-.model img {
+.model.open img {
   width: auto;
   max-width: 100%;
   height: auto;
   max-height: 100%;
   display: block;
   line-height: 0;
-  transition: all .5s ease-in-out;
   box-sizing: border-box;
   padding: 20px 0 20px;
   margin: 0 auto;
   cursor: move;
+  transition: opacity 0.4s ease, visibility 0.4s ease,
+    transform 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(0);
+  visibility: hidden;
+}
+
+.model.open {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .model.open svg {
@@ -45,5 +50,3 @@
   color: #fff;
   cursor: pointer;
 }
-
-

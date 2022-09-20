@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { CloseIcon } from "../icons/CloseIcon";
 import "./ImageViewer.css";
 
-// const Close: string = require("../icons/close.svg").default;
 
 interface imageProps {
   img: string;
@@ -21,29 +20,6 @@ const ImageViewer = (props: imageProps) => {
     setModel(true);
   };
 
-  //function to move image
-  const moveImage = (e: any) => {
-    const container: any = imgRef.current;
-    if(container) {
-      container.style.cursor = "grabbing";
-      container.style.left = e.pageX - container.offsetWidth / 2 + "px";
-      container.style.top = e.pageY - container.offsetHeight / 2 + "px";
-    }
-  };
-
-  
-  
-  // useEffect(()=> {
-  //   const closeModel = (e: any) => {
-  //     if (imgRef.current === e.target) {
-  //       setModel(false);
-  //     }
-  //   };
-  //   window.addEventListener("click", closeModel);
-  //   return () => window.removeEventListener("click", closeModel);
-  // }, []);
-
-
   return (
     <>
       <div className={model ? "model open" : "model"}>
@@ -57,7 +33,6 @@ const ImageViewer = (props: imageProps) => {
           height={props.height}
           width={props.width}
           alt="image"
-          onChange={e =>moveImage(e)}
           onClick={() => getImg(props.img)}
         />
       </div>
