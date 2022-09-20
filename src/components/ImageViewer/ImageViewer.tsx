@@ -109,7 +109,7 @@ const ImageViewer = (props: imageProps) => {
   return (
     <>
       <div className={model ? "model open" : "model"}>
-        <img draggable="false" id="testimg" ref={imgRef} src={tempImgSrc} alt="image" />
+        <img draggable="false" id="testimg" ref={imgRef} src={tempImgSrc} onDragStart={(e) => e.preventDefault()} alt="image" />
         <CloseIcon
           id="closesvg"
           width={30}
