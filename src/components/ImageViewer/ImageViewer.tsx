@@ -20,6 +20,18 @@ const ImageViewer = (props: imageProps) => {
     setTempImgSrc(img);
     setModel(true);
   };
+
+  //function to move image
+  const moveImage = (e: any) => {
+    const container: any = imgRef.current;
+    if(container) {
+      container.style.cursor = "grabbing";
+      container.style.left = e.pageX - container.offsetWidth / 2 + "px";
+      container.style.top = e.pageY - container.offsetHeight / 2 + "px";
+    }
+  };
+
+  
   
   // useEffect(()=> {
   //   const closeModel = (e: any) => {
@@ -45,6 +57,7 @@ const ImageViewer = (props: imageProps) => {
           height={props.height}
           width={props.width}
           alt="image"
+          onChange={e =>moveImage(e)}
           onClick={() => getImg(props.img)}
         />
       </div>
