@@ -21,7 +21,8 @@
   line-height: 0;
   box-sizing: border-box;
   /* padding: 20px 0 91px; */
-  margin: 10px auto;
+  /* margin: 10px auto; */
+  margin: auto;
   cursor: move;
   transition: opacity 0.4s ease, visibility 0.4s ease,
     transform 0.5s ease-in-out;
