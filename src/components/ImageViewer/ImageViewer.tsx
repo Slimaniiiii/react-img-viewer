@@ -98,6 +98,9 @@ const ImageViewer = (props: imageProps) => {
 
   useEffect(() => {
     addListeners();
+    return () => {
+      window.removeEventListener("mousemove", divMove, true);
+    }
   }, []);
 
 
