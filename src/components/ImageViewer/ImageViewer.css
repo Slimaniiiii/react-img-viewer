@@ -6,7 +6,7 @@
   left: 0;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.568);
+  background-color: rgb(30 32 30 / 55%);
   visibility: hidden;
   overflow: hidden;
   z-index: 999;
