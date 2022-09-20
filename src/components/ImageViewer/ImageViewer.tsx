@@ -15,7 +15,6 @@ const ImageViewer = (props: imageProps) => {
   const [model, setModel] = useState(false);
   const [tempImgSrc, setTempImgSrc] = useState("");
   const imgRef = useRef(null);
-  const element = document.getElementById('img_id')
 
   const getImg = (img: string) => {
     setTempImgSrc(img);
@@ -35,7 +34,7 @@ const ImageViewer = (props: imageProps) => {
 
   return (
     <>
-      <div className={model ? "model open overlay" : "model"}>
+      <div className={model ? "model open" : "model"}>
         <img ref={imgRef} src={tempImgSrc} alt="image" />
         <CloseIcon width={30} height={30} onClick={() => setModel(false)} />
       </div>
