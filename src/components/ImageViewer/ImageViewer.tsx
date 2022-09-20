@@ -20,9 +20,14 @@ const ImageViewer = (props: imageProps) => {
   const imgSize = () => {
     const imgSepcs = document.getElementById("img_id");
     if (imgSepcs) {
-      const height = imgSepcs.clientHeight;
-      const width = imgSepcs.clientWidth;
-
+      let height = imgSepcs.clientHeight;
+      let width = imgSepcs.clientWidth;
+      let screenHeight = window.innerHeight;
+      let screenWidth = window.innerWidth;
+      if (height > screenHeight || width > screenWidth) {
+        height = (screenHeight * 80) / 100;
+        width = (screenWidth * 80) / 100;
+      }
       return { height, width };
     }
   };
