@@ -25,10 +25,10 @@ const ImageViewer = (props: imageProps) => {
     <>
       <div className={model ? "model open" : "model"}>
         <img ref={imgRef} src={tempImgSrc} alt="image" />
-        <CloseIcon width={30} height={30} onClick={() => setModel(false)} />
+        <CloseIcon id="closesvg" width={30} height={30} onClick={() => setModel(false)} />
         <div className="configIcons">
-          <ArrowLeft width={30} height={30} />
-          <ArrowRight width={30} height={30} />
+          <ArrowLeft width={25} height={25} />
+          <ArrowRight width={25} height={25} />
         </div>
       </div>
       <div className="images">
