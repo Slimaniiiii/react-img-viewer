@@ -7,11 +7,7 @@
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.568);
-  /* transition: opacity 0.4s ease, visibility 0.4s ease,
-    transform 0.5s ease-in-out; */
   visibility: hidden;
-  /* opacity: 0;
-  transform: scale(0); */
   overflow: hidden;
   z-index: 999;
 }
@@ -24,7 +20,7 @@
   display: block;
   line-height: 0;
   box-sizing: border-box;
-  padding: 20px 0 20px;
+  padding: 20px 0 91px;
   margin: 0 auto;
   cursor: move;
   transition: opacity 0.4s ease, visibility 0.4s ease,
@@ -41,8 +37,6 @@
 
 .model.open {
   visibility: visible;
-  /* opacity: 1;
-  transform: scale(1); */
 }
 
 .model.open svg {
@@ -54,4 +48,14 @@
   padding: 5px;
   color: #fff;
   cursor: pointer;
+}
+
+.configIcons{
+    position: fixed;
+    top: 92%;
+    right: 50%;
+    width: 2rem;
+    height: 2rem;
+    padding: 5px;
+    color: #fff;
 }

@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import { CloseIcon } from "../icons/CloseIcon";
+import { ArrowLeft } from "../icons/ArrowLeft";
+import { ArrowRight } from "../icons/ArrowRight";
 import "./ImageViewer.css";
-
 
 interface imageProps {
   img: string;
@@ -25,6 +26,10 @@ const ImageViewer = (props: imageProps) => {
       <div className={model ? "model open" : "model"}>
         <img ref={imgRef} src={tempImgSrc} alt="image" />
         <CloseIcon width={30} height={30} onClick={() => setModel(false)} />
+        <div className="configIcons">
+          <ArrowLeft width={30} height={30} />
+          <ArrowRight width={30} height={30} />
+        </div>
       </div>
       <div className="images">
         <img
