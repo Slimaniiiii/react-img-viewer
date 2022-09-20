@@ -18,9 +18,11 @@ const ImageViewer = (props: imageProps) => {
 
   //get image size
   const imgSize = () => {
-    if (imgRef.current) {
-      const height = imgRef.current.clientHeight;
-      const width = imgRef.current.clientWidth;
+    const imgSepcs = document.getElementById("img_id");
+    if (imgSepcs) {
+      const height = imgSepcs.clientHeight;
+      const width = imgSepcs.clientWidth;
+
       return { height, width };
     }
   };
@@ -36,15 +38,12 @@ const ImageViewer = (props: imageProps) => {
     setImgSize();
   };
 
-
   // .model img {
   //   width: auto;
   //   max-width: 100%;
   //   height: auto;
   //   max-height: 100%;
   //access to .model img and set height and width
-
-
 
   return (
     <>
