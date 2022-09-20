@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { CloseIcon } from "../icons/CloseIcon";
 import "./ImageViewer.css";
-import {increase} from "./utils/Zoom"
 
 // const Close: string = require("../icons/close.svg").default;
 
@@ -46,7 +45,6 @@ const ImageViewer = (props: imageProps) => {
           src={props.img}
           height={props.height}
           width={props.width}
-          onMouseOver={() => increase(element)}
           alt="image"
           onClick={() => getImg(props.img)}
         />
