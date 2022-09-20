@@ -43,12 +43,30 @@ const ImageViewer = (props: imageProps) => {
     setImgSize();
   };
 
-      
+  function addListeners() {
+    let testi: any = document.getElementById("testimg");
+    testi.addEventListener("mousedown", mouseDown, false);
+    window.addEventListener("mouseup", mouseUp, false);
+  }
+  function mouseUp() {
+    window.removeEventListener("mousemove", divMove, true);
+  }
 
+  function mouseDown() {
+    window.addEventListener("mousemove", divMove, true);
+  }
+
+  function divMove(e: any) {
+    let div: any = document.getElementById("testi");
+    div.style.position = "absolute";
+    div.style.top = e.clientY + "px";
+    div.style.left = e.clientX + "px";
+  }
+  addListeners();
   return (
     <>
       <div className={model ? "model open" : "model"}>
-        <img ref={imgRef} src={tempImgSrc} alt="image" />
+        <img id="testimg" ref={imgRef} src={tempImgSrc} alt="image" />
         <CloseIcon
           id="closesvg"
           width={30}
