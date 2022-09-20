@@ -81,6 +81,7 @@ const ImageViewer = (props: imageProps) => {
     let topPos = topPart.indexOf("px");
     let topNumString = topPart.slice(0, topPos); // Get the Y value of the object.
     gMouseDownOffsetY = gMouseDownY - parseInt(topNumString, 10);
+    
 
     window.addEventListener("mousemove", divMove, true);
   }
@@ -99,10 +100,13 @@ const ImageViewer = (props: imageProps) => {
     addListeners();
   }, []);
 
+
+    
+
   return (
     <>
       <div className={model ? "model open" : "model"}>
-        <img id="testimg" ref={imgRef} src={tempImgSrc} alt="image" />
+        <img draggable="false" id="testimg" ref={imgRef} src={tempImgSrc} alt="image" />
         <CloseIcon
           id="closesvg"
           width={30}
