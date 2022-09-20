@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.568);
-  transition: opacity .4s ease, visibility .4s ease, transform .5s ease-in-out;
   visibility: hidden;
   opacity: 0;
   transform: scale(0);
@@ -28,6 +27,7 @@
   display: block;
   line-height: 0;
   box-sizing: border-box;
+  transition: opacity .4s ease, visibility .4s ease, transform .5s ease-in-out;
   padding: 20px 0 20px;
   margin: 0 auto;
 }
