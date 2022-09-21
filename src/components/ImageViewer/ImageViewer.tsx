@@ -65,9 +65,18 @@ const ImageViewer = (props: imageProps) => {
     let div = document.getElementById("testimg");
     if (div) {
       div.style.position = "absolute";
-      let centeredMouseY = e.clientY;
-      let centeredMouseX = e.clientX;
-      //center the cursor in the image while dragging
+      let centeredMouseY = e.clientY - gMouseDownY;
+      let centeredMouseX = e.clientX - gMouseDownX;
+      // //center the cursor in the image while dragging
+      // div.style.top = centeredMouseY + "px";
+      // div.style.left = centeredMouseX + "px";
+      //prevent cursor from moving top left
+      if (centeredMouseY < 0) {
+        centeredMouseY = 0;
+      }
+      if (centeredMouseX < 0) {
+        centeredMouseX = 0;
+      }
       div.style.top = centeredMouseY + "px";
       div.style.left = centeredMouseX + "px";
 
