@@ -64,16 +64,14 @@ const ImageViewer = (props: imageProps) => {
   function divMove(e: any) {
     let div = document.getElementById("testimg");
     if (div) {
-      // div.style.position = "absolute";
-      // let topAmount = e.clientY - gMouseDownOffsetY;
-      // div.style.top = topAmount + "px";
-      // let leftAmount = e.clientX - gMouseDownOffsetX;
-      // div.style.left = leftAmount + "px";
-      //set mouse position in the center of the image while dragging
+      div.style.position = "absolute";
       let topAmount = e.clientY - gMouseDownOffsetY;
-      let leftAmount = e.clientX - gMouseDownOffsetX;
       div.style.top = topAmount + "px";
+      let leftAmount = e.clientX - gMouseDownOffsetX;
       div.style.left = leftAmount + "px";
+      //keep mouse in the center of the image
+      gMouseDownOffsetX = e.clientX - leftAmount;
+      gMouseDownOffsetY = e.clientY - topAmount;
     }
   }
 
