@@ -47,47 +47,52 @@ const ImageViewer = (props: imageProps) => {
   let gMouseDownY = 0;
   let gMouseDownOffsetX = 0;
   let gMouseDownOffsetY = 0;
-
+  
   function addListeners() {
     let doc: any = document.getElementById("testimg");
     doc.addEventListener("mousedown", mouseDown, false);
     window.addEventListener("mouseup", mouseUp, false);
   }
-
+  
   function mouseUp() {
     window.removeEventListener("mousemove", divMove, true);
   }
-
-  function mouseDown() {
+  
+  function mouseDown(e: any) {
+    gMouseDownX = e.clientX;
+    gMouseDownY = e.clientY;
+  
+    let div: any = document.getElementById("testimg");
+  
+    //The following block gets the X offset (the difference between where it starts and where it was clicked)
+    let leftPart = "";
+    if (!div.style.left)
+      leftPart += "0px"; //In case this was not defined as 0px explicitly.
+    else leftPart = div.style.left;
+    let leftPos = leftPart.indexOf("px");
+    let leftNumString = leftPart.slice(0, leftPos); // Get the X value of the object.
+    gMouseDownOffsetX = gMouseDownX - parseInt(leftNumString, 10);
+  
+    //The following block gets the Y offset (the difference between where it starts and where it was clicked)
+    let topPart = "";
+    if (!div.style.top)
+      topPart += "0px"; //In case this was not defined as 0px explicitly.
+    else topPart = div.style.top;
+    let topPos = topPart.indexOf("px");
+    let topNumString = topPart.slice(0, topPos); // Get the Y value of the object.
+    gMouseDownOffsetY = gMouseDownY - parseInt(topNumString, 10);
+    
+  
     window.addEventListener("mousemove", divMove, true);
   }
   function divMove(e: any) {
     let div = document.getElementById("testimg");
     if (div) {
       div.style.position = "absolute";
-      let centeredMouseY = e.clientY - gMouseDownY;
-      let centeredMouseX = e.clientX - gMouseDownX;
-      // //center the cursor in the image while dragging
-      // div.style.top = centeredMouseY + "px";
-      // div.style.left = centeredMouseX + "px";
-      //prevent cursor from moving top left
-      if (centeredMouseY < 0) {
-        centeredMouseY = 0;
-      }
-      if (centeredMouseX < 0) {
-        centeredMouseX = 0;
-      }
-      div.style.top = centeredMouseY + "px";
-      div.style.left = centeredMouseX + "px";
-
-
-
-
-
-      // div.style.top = topAmount + "px";
-      // let leftAmount = e.clientX - gMouseDownOffsetX;
-      // div.style.left = leftAmount + "px";
-    
+      let topAmount = e.clientY ;
+      div.style.top = topAmount + "px";
+      let leftAmount = e.clientX;
+      div.style.left = leftAmount + "px";
     }
   }
 
@@ -95,7 +100,7 @@ const ImageViewer = (props: imageProps) => {
     addListeners();
     return () => {
       window.removeEventListener("mousemove", divMove, true);
-    };
+    }
   }, []);
 
   return (
@@ -106,7 +111,8 @@ const ImageViewer = (props: imageProps) => {
           id="testimg"
           ref={imgRef}
           src={tempImgSrc}
-          onDragStart={(e) => e.preventDefault()}
+           onDragStart={(e) => e.preventDefault()}
+           onDrag={(e) => e.preventDefault()}
           alt="image"
         />
         <CloseIcon
